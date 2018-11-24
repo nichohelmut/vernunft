@@ -1,0 +1,21 @@
+<%= link_to "Home", '/', class: "btn btn-primary"  %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1>Unterstütze unsere Charta!</h1>
+      <%= simple_form_for @user, url: users_path, method: :post do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :email %>
+        <%= f.input :password, as: :hidden, input_html: { value: ('0'..'z').to_a.shuffle.first(8).join } %>
+        <%= f.input :street %>
+        <%= f.input :zip %>
+        <%= f.input :city %>
+        <%= f.input :phone %>
+        <%= f.input :birth_date %>
+        <%= f.input :support %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
